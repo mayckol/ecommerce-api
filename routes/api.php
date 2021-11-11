@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware(['auth:sanctum'])->group(function () {
+    //|-------------------------------------------------------------------------
+    //| ADM Routes
+    //|-------------------------------------------------------------------------
+    Route::middleware(['isAdm'])->group(function () {
+        Route::prefix('admin')->group(function () {
+            Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class)->except(['create']);
+            Route::resource('scheduling-services', \App\Http\Controllers\Admin\SchedulingServiceController::class)->except(['create']);
+            Route::resource('worker-services', \App\Http\Controllers\Admin\WorkerServiceController::class)->except(['create']);
+        });
+    });
+    //|-------------------------------------------------------------------------
+    //| CLIENT Routes
+    //|-------------------------------------------------------------------------
+    Route::middleware(['isCustomer'])->group(function () {
+        Route::prefix('customer')->group(function () {
+            Route::resource('ratings', \App\Http\Controllers\Customer\RatingController::class)->except(['create']);
+        });
+    });
 });
-Route::get('/', function () {
-    $users = \App\Models\User::all();
-    return response()->json([
-        'foo' => $users,
-    ]);
-});
+    //|-------------------------------------------------------------------------
+    //| Mobile Routes
+    //|-------------------------------------------------------------------------
+//Route::post('/login', [\App\Http\Controllers\AuthController::class, 'authenticate']);
+
