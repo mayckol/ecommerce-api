@@ -14,12 +14,12 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('roles')->truncate();
-        DB::table('roles')->insert([
+//        DB::table('roles')->truncate();
+        DB::table('roles')->updateOrInsert([
             'id' => config('role.adm'),
             'type' => 'ADM',
         ]);
-        DB::table('roles')->insert([
+        DB::table('roles')->updateOrInsert([
             'id' => config('role.client'),
             'type' => 'CLIENT',
         ]);
