@@ -5,17 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class WorkerService extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'client_id',
-        'worker_service_id',
-    ];
+    use SoftDeletes;
 
-    public $timestamps = true;
+    protected $dates = ['deleted_at', 'created_at', 'updated_at'];
+
+    protected $fillable = [
+        'worker_id',
+        'service_id',
+        'price',
+    ];
 
     public function worker(): BelongsTo
     {
