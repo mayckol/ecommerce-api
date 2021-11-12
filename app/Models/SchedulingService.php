@@ -14,6 +14,7 @@ class SchedulingService extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'client_id',
         'worker_id',
         'available_day',
         'start_at',

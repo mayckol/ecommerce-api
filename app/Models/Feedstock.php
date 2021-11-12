@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class WorkerService extends Model
+class Feedstock extends Model
 {
     use HasFactory;
 
@@ -16,19 +16,12 @@ class WorkerService extends Model
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
 
     protected $fillable = [
-        'worker_id',
-        'service_id',
-        'price',
-        'description',
+        'name',
+        'worker_service_id',
     ];
 
-    public function worker(): BelongsTo
+    public function workerService(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'worker_id');
-    }
-
-    public function service(): BelongsTo
-    {
-        return $this->belongsTo(Service::class, 'service_id');
+        return $this->belongsTo(WorkerService::class, 'worker_service_id');
     }
 }

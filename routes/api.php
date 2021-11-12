@@ -22,6 +22,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
             Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class)->except(['create']);
             Route::resource('scheduling-services', \App\Http\Controllers\Admin\SchedulingServiceController::class)->except(['create']);
             Route::resource('worker-services', \App\Http\Controllers\Admin\WorkerServiceController::class)->except(['create']);
+            Route::resource('feedstocks', \App\Http\Controllers\Admin\FeedstockController::class)->except(['create']);
         });
     });
     //|-------------------------------------------------------------------------
