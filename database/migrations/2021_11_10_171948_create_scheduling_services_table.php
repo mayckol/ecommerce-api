@@ -16,6 +16,7 @@ class CreateSchedulingServicesTable extends Migration
         Schema::create('scheduling_services', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('worker_id');
+            $table->unsignedBigInteger('client_id');
             $table->date('available_day');
             $table->time('start_at');
             $table->time('end_at');
@@ -24,6 +25,7 @@ class CreateSchedulingServicesTable extends Migration
             $table->softDeletes();
 
             $table->foreign('worker_id')->references('id')->on('users');
+            $table->foreign('client_id')->references('id')->on('users');
         });
     }
 

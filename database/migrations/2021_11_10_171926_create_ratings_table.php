@@ -17,6 +17,7 @@ class CreateRatingsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('worker_service_id');
+            $table->text('comment');
             $table->tinyInteger('rate');
             $table->timestamps();
             $table->softDeletes();

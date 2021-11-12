@@ -17,6 +17,7 @@ class CreateWorkerServicesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('worker_id');
             $table->unsignedBigInteger('service_id');
+            $table->string('description', 255)->nullable();
             $table->double('price');
             $table->timestamps();
 
