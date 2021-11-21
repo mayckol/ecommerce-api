@@ -34,6 +34,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         });
     });
 });
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'authenticate']);
 Route::post('/register', [\App\Http\Controllers\UserController::class, 'store']);
     //|-------------------------------------------------------------------------
     //| Mobile Routes
