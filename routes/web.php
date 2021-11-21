@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('/login', [\App\Http\Controllers\AuthController::class, 'authenticate']);
 Route::get('/', function () {
-    return view('welcome');
+    $pathRoutesList = storage_path() . '/app/routes.json';
+    $routes = json_decode(file_get_contents($pathRoutesList), true, 512, JSON_THROW_ON_ERROR);
+    return view('welcome', compact([
+        'routesList' => 'routes'
+    ]));
 });
