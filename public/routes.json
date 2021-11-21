@@ -1,0 +1,412 @@
+[
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "\/",
+        "name": null,
+        "action": "Closure",
+        "middleware": [
+            "web"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/feedstocks",
+        "name": "feedstocks.index",
+        "action": "App\\Http\\Controllers\\Admin\\FeedstockController@index",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api\/admin\/feedstocks",
+        "name": "feedstocks.store",
+        "action": "App\\Http\\Controllers\\Admin\\FeedstockController@store",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/feedstocks\/{feedstock}",
+        "name": "feedstocks.show",
+        "action": "App\\Http\\Controllers\\Admin\\FeedstockController@show",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "PUT|PATCH",
+        "uri": "api\/admin\/feedstocks\/{feedstock}",
+        "name": "feedstocks.update",
+        "action": "App\\Http\\Controllers\\Admin\\FeedstockController@update",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "DELETE",
+        "uri": "api\/admin\/feedstocks\/{feedstock}",
+        "name": "feedstocks.destroy",
+        "action": "App\\Http\\Controllers\\Admin\\FeedstockController@destroy",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/feedstocks\/{feedstock}\/edit",
+        "name": "feedstocks.edit",
+        "action": "App\\Http\\Controllers\\Admin\\FeedstockController@edit",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/scheduling-services",
+        "name": "scheduling-services.index",
+        "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@index",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api\/admin\/scheduling-services",
+        "name": "scheduling-services.store",
+        "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@store",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/scheduling-services\/{scheduling_service}",
+        "name": "scheduling-services.show",
+        "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@show",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "PUT|PATCH",
+        "uri": "api\/admin\/scheduling-services\/{scheduling_service}",
+        "name": "scheduling-services.update",
+        "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@update",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "DELETE",
+        "uri": "api\/admin\/scheduling-services\/{scheduling_service}",
+        "name": "scheduling-services.destroy",
+        "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@destroy",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/scheduling-services\/{scheduling_service}\/edit",
+        "name": "scheduling-services.edit",
+        "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@edit",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/services",
+        "name": "services.index",
+        "action": "App\\Http\\Controllers\\Admin\\ServiceController@index",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api\/admin\/services",
+        "name": "services.store",
+        "action": "App\\Http\\Controllers\\Admin\\ServiceController@store",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/services\/{service}",
+        "name": "services.show",
+        "action": "App\\Http\\Controllers\\Admin\\ServiceController@show",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "PUT|PATCH",
+        "uri": "api\/admin\/services\/{service}",
+        "name": "services.update",
+        "action": "App\\Http\\Controllers\\Admin\\ServiceController@update",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "DELETE",
+        "uri": "api\/admin\/services\/{service}",
+        "name": "services.destroy",
+        "action": "App\\Http\\Controllers\\Admin\\ServiceController@destroy",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/services\/{service}\/edit",
+        "name": "services.edit",
+        "action": "App\\Http\\Controllers\\Admin\\ServiceController@edit",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/worker-services",
+        "name": "worker-services.index",
+        "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@index",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api\/admin\/worker-services",
+        "name": "worker-services.store",
+        "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@store",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/worker-services\/{worker_service}",
+        "name": "worker-services.show",
+        "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@show",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "PUT|PATCH",
+        "uri": "api\/admin\/worker-services\/{worker_service}",
+        "name": "worker-services.update",
+        "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@update",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "DELETE",
+        "uri": "api\/admin\/worker-services\/{worker_service}",
+        "name": "worker-services.destroy",
+        "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@destroy",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/admin\/worker-services\/{worker_service}\/edit",
+        "name": "worker-services.edit",
+        "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@edit",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsAdm"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/customer\/ratings",
+        "name": "ratings.index",
+        "action": "App\\Http\\Controllers\\Customer\\RatingController@index",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsCustomer"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api\/customer\/ratings",
+        "name": "ratings.store",
+        "action": "App\\Http\\Controllers\\Customer\\RatingController@store",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsCustomer"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/customer\/ratings\/{rating}",
+        "name": "ratings.show",
+        "action": "App\\Http\\Controllers\\Customer\\RatingController@show",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsCustomer"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "PUT|PATCH",
+        "uri": "api\/customer\/ratings\/{rating}",
+        "name": "ratings.update",
+        "action": "App\\Http\\Controllers\\Customer\\RatingController@update",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsCustomer"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "DELETE",
+        "uri": "api\/customer\/ratings\/{rating}",
+        "name": "ratings.destroy",
+        "action": "App\\Http\\Controllers\\Customer\\RatingController@destroy",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsCustomer"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api\/customer\/ratings\/{rating}\/edit",
+        "name": "ratings.edit",
+        "action": "App\\Http\\Controllers\\Customer\\RatingController@edit",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\Authenticate:sanctum",
+            "App\\Http\\Middleware\\CheckIsCustomer"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api\/login",
+        "name": null,
+        "action": "App\\Http\\Controllers\\AuthController@authenticate",
+        "middleware": [
+            "api"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api\/register",
+        "name": null,
+        "action": "App\\Http\\Controllers\\UserController@store",
+        "middleware": [
+            "api"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "login",
+        "name": null,
+        "action": "App\\Http\\Controllers\\AuthController@authenticate",
+        "middleware": [
+            "web"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "sanctum\/csrf-cookie",
+        "name": null,
+        "action": "Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show",
+        "middleware": [
+            "web"
+        ]
+    }
+]
