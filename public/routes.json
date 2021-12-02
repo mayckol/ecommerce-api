@@ -1,12 +1,13 @@
 [
     {
         "domain": null,
-        "method": "GET|HEAD",
-        "uri": "\/",
+        "method": "ACTION",
+        "uri": "PATH",
         "name": null,
         "action": "Closure",
+        "params": "PARAMS",
         "middleware": [
-            "web"
+            "MIDDLEWARES"
         ]
     },
     {
@@ -15,10 +16,11 @@
         "uri": "api\/admin\/feedstocks",
         "name": "feedstocks.index",
         "action": "App\\Http\\Controllers\\Admin\\FeedstockController@index",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -27,10 +29,14 @@
         "uri": "api\/admin\/feedstocks",
         "name": "feedstocks.store",
         "action": "App\\Http\\Controllers\\Admin\\FeedstockController@store",
+        "params": [
+            "name",
+            "worker_service_id"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -39,10 +45,11 @@
         "uri": "api\/admin\/feedstocks\/{feedstock}",
         "name": "feedstocks.show",
         "action": "App\\Http\\Controllers\\Admin\\FeedstockController@show",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -51,10 +58,14 @@
         "uri": "api\/admin\/feedstocks\/{feedstock}",
         "name": "feedstocks.update",
         "action": "App\\Http\\Controllers\\Admin\\FeedstockController@update",
+        "params": [
+            "name",
+            "worker_service_id"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -63,22 +74,11 @@
         "uri": "api\/admin\/feedstocks\/{feedstock}",
         "name": "feedstocks.destroy",
         "action": "App\\Http\\Controllers\\Admin\\FeedstockController@destroy",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
-        ]
-    },
-    {
-        "domain": null,
-        "method": "GET|HEAD",
-        "uri": "api\/admin\/feedstocks\/{feedstock}\/edit",
-        "name": "feedstocks.edit",
-        "action": "App\\Http\\Controllers\\Admin\\FeedstockController@edit",
-        "middleware": [
-            "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -87,10 +87,11 @@
         "uri": "api\/admin\/scheduling-services",
         "name": "scheduling-services.index",
         "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@index",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -99,10 +100,18 @@
         "uri": "api\/admin\/scheduling-services",
         "name": "scheduling-services.store",
         "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@store",
+        "params": [
+            "worker_id",
+            "client_id",
+            "available_day",
+            "start_at",
+            "end_at",
+            "is_available"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -111,10 +120,11 @@
         "uri": "api\/admin\/scheduling-services\/{scheduling_service}",
         "name": "scheduling-services.show",
         "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@show",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -123,10 +133,18 @@
         "uri": "api\/admin\/scheduling-services\/{scheduling_service}",
         "name": "scheduling-services.update",
         "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@update",
+        "params": [
+            "worker_id",
+            "client_id",
+            "available_day",
+            "start_at",
+            "end_at",
+            "is_available"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -135,22 +153,11 @@
         "uri": "api\/admin\/scheduling-services\/{scheduling_service}",
         "name": "scheduling-services.destroy",
         "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@destroy",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
-        ]
-    },
-    {
-        "domain": null,
-        "method": "GET|HEAD",
-        "uri": "api\/admin\/scheduling-services\/{scheduling_service}\/edit",
-        "name": "scheduling-services.edit",
-        "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@edit",
-        "middleware": [
-            "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -159,10 +166,11 @@
         "uri": "api\/admin\/services",
         "name": "services.index",
         "action": "App\\Http\\Controllers\\Admin\\ServiceController@index",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -171,10 +179,13 @@
         "uri": "api\/admin\/services",
         "name": "services.store",
         "action": "App\\Http\\Controllers\\Admin\\ServiceController@store",
+        "params": [
+            "name"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -183,10 +194,11 @@
         "uri": "api\/admin\/services\/{service}",
         "name": "services.show",
         "action": "App\\Http\\Controllers\\Admin\\ServiceController@show",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -195,10 +207,13 @@
         "uri": "api\/admin\/services\/{service}",
         "name": "services.update",
         "action": "App\\Http\\Controllers\\Admin\\ServiceController@update",
+        "params": [
+            "name"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -207,22 +222,11 @@
         "uri": "api\/admin\/services\/{service}",
         "name": "services.destroy",
         "action": "App\\Http\\Controllers\\Admin\\ServiceController@destroy",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
-        ]
-    },
-    {
-        "domain": null,
-        "method": "GET|HEAD",
-        "uri": "api\/admin\/services\/{service}\/edit",
-        "name": "services.edit",
-        "action": "App\\Http\\Controllers\\Admin\\ServiceController@edit",
-        "middleware": [
-            "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -231,10 +235,11 @@
         "uri": "api\/admin\/worker-services",
         "name": "worker-services.index",
         "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@index",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -243,10 +248,16 @@
         "uri": "api\/admin\/worker-services",
         "name": "worker-services.store",
         "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@store",
+        "params": [
+            "worker_id",
+            "service_id",
+            "description",
+            "price"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -255,10 +266,11 @@
         "uri": "api\/admin\/worker-services\/{worker_service}",
         "name": "worker-services.show",
         "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@show",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -267,10 +279,16 @@
         "uri": "api\/admin\/worker-services\/{worker_service}",
         "name": "worker-services.update",
         "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@update",
+        "params": [
+            "worker_id",
+            "service_id",
+            "description",
+            "price"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -279,22 +297,11 @@
         "uri": "api\/admin\/worker-services\/{worker_service}",
         "name": "worker-services.destroy",
         "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@destroy",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
-        ]
-    },
-    {
-        "domain": null,
-        "method": "GET|HEAD",
-        "uri": "api\/admin\/worker-services\/{worker_service}\/edit",
-        "name": "worker-services.edit",
-        "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@edit",
-        "middleware": [
-            "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsAdm"
+            "Authenticate:sanctum",
+            "CheckIsAdm"
         ]
     },
     {
@@ -303,10 +310,11 @@
         "uri": "api\/customer\/ratings",
         "name": "ratings.index",
         "action": "App\\Http\\Controllers\\Customer\\RatingController@index",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsCustomer"
+            "Authenticate:sanctum",
+            "CheckIsCustomer"
         ]
     },
     {
@@ -315,10 +323,16 @@
         "uri": "api\/customer\/ratings",
         "name": "ratings.store",
         "action": "App\\Http\\Controllers\\Customer\\RatingController@store",
+        "params": [
+            "client_id",
+            "worker_service_id",
+            "comment",
+            "rate"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsCustomer"
+            "Authenticate:sanctum",
+            "CheckIsCustomer"
         ]
     },
     {
@@ -327,10 +341,11 @@
         "uri": "api\/customer\/ratings\/{rating}",
         "name": "ratings.show",
         "action": "App\\Http\\Controllers\\Customer\\RatingController@show",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsCustomer"
+            "Authenticate:sanctum",
+            "CheckIsCustomer"
         ]
     },
     {
@@ -339,10 +354,16 @@
         "uri": "api\/customer\/ratings\/{rating}",
         "name": "ratings.update",
         "action": "App\\Http\\Controllers\\Customer\\RatingController@update",
+        "params": [
+            "client_id",
+            "worker_service_id",
+            "comment",
+            "rate"
+        ],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsCustomer"
+            "Authenticate:sanctum",
+            "CheckIsCustomer"
         ]
     },
     {
@@ -351,22 +372,11 @@
         "uri": "api\/customer\/ratings\/{rating}",
         "name": "ratings.destroy",
         "action": "App\\Http\\Controllers\\Customer\\RatingController@destroy",
+        "params": [],
         "middleware": [
             "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsCustomer"
-        ]
-    },
-    {
-        "domain": null,
-        "method": "GET|HEAD",
-        "uri": "api\/customer\/ratings\/{rating}\/edit",
-        "name": "ratings.edit",
-        "action": "App\\Http\\Controllers\\Customer\\RatingController@edit",
-        "middleware": [
-            "api",
-            "App\\Http\\Middleware\\Authenticate:sanctum",
-            "App\\Http\\Middleware\\CheckIsCustomer"
+            "Authenticate:sanctum",
+            "CheckIsCustomer"
         ]
     },
     {
@@ -375,6 +385,10 @@
         "uri": "api\/login",
         "name": null,
         "action": "App\\Http\\Controllers\\AuthController@authenticate",
+        "params": [
+            "email",
+            "password"
+        ],
         "middleware": [
             "api"
         ]
@@ -385,28 +399,20 @@
         "uri": "api\/register",
         "name": null,
         "action": "App\\Http\\Controllers\\UserController@store",
+        "params": [
+            "cpf",
+            "name",
+            "email",
+            "password",
+            "state",
+            "city",
+            "street",
+            "number",
+            "complement",
+            "phone"
+        ],
         "middleware": [
             "api"
-        ]
-    },
-    {
-        "domain": null,
-        "method": "POST",
-        "uri": "login",
-        "name": null,
-        "action": "App\\Http\\Controllers\\AuthController@authenticate",
-        "middleware": [
-            "web"
-        ]
-    },
-    {
-        "domain": null,
-        "method": "GET|HEAD",
-        "uri": "sanctum\/csrf-cookie",
-        "name": null,
-        "action": "Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show",
-        "middleware": [
-            "web"
         ]
     }
 ]

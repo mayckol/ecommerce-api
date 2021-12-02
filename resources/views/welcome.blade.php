@@ -96,6 +96,7 @@
                     <th>{{ \App\Helpers\FormatString::serialize_method($route['method']) }}</th>
                     <th>{{ \App\Helpers\FormatString::serialize_uri($route['uri']) }}</th>
                     <th>{{ \App\Helpers\FormatString::serialize_middleware($route['middleware']) }}</th>
+                    <th>{{ \App\Helpers\FormatString::serialize_params($route['params']) }}</th>
                 </tr>
             @endforeach
         </table>
