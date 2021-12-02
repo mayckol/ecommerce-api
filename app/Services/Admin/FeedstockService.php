@@ -2,6 +2,7 @@
 
 namespace App\Services\Admin;
 
+use App\Criteria\JoinWorkerServiceCriteriaCriteria;
 use App\Repositories\FeedstockRepository;
 use Exception;
 use Prettus\Validator\Exceptions\ValidatorException;
@@ -17,8 +18,12 @@ class FeedstockService {
         $this->feedStockRepository = $feedStockRepository;
     }
 
+    /**
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
     public function all(?bool $paginate = false)
     {
+        $this->feedStockRepository->pushCriteria(new JoinWorkerServiceCriteriaCriteria());
         return $paginate
             ? $this->feedStockRepository->paginate()
             : $this->feedStockRepository->all();
@@ -29,6 +34,7 @@ class FeedstockService {
      */
     public function show(int $id)
     {
+        $this->feedStockRepository->pushCriteria(new JoinWorkerServiceCriteriaCriteria());
         return $this->feedStockRepository->find($id);
     }
 

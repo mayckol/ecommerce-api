@@ -4,6 +4,7 @@ namespace App\Services\Admin;
 
 use App\Repositories\SchedulingServiceRepository;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class SchedulingServiceService {
@@ -19,9 +20,16 @@ class SchedulingServiceService {
 
     public function all(?bool $paginate = false)
     {
-        return $paginate
-            ? $this->schedulingServiceRepository->paginate()
-            : $this->schedulingServiceRepository->all();
+        $schedulingService = $this->schedulingServiceRepository
+            ->with(['client'])
+            ->paginate()->where('worker_id', '=', Auth::user()->id);
+
+        if (!$paginate) {
+            $schedulingService = $this->schedulingServiceRepository
+                ->with(['client'])
+                ->findWhere(['worker_id' => Auth::user()->id]);
+        }
+        return $schedulingService;
     }
 
     /**
@@ -29,6 +37,10 @@ class SchedulingServiceService {
      */
     public function show(int $id)
     {
+        $schedulingService = $this->schedulingServiceRepository->find($id);
+        if ($schedulingService?->worker_id === $id) {
+            return [];
+        }
         return $this->schedulingServiceRepository->find($id);
     }
 
@@ -38,6 +50,7 @@ class SchedulingServiceService {
      */
     public function store(array $data)
     {
+        $data['worker_id'] = Auth::user()->id;
         try {
             return $this->schedulingServiceRepository->create($data);
         } catch (Exception $exception) {

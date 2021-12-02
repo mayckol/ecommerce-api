@@ -25,8 +25,8 @@ class Update extends FormRequest
     {
         return [
             'rating' => 'required|exists:ratings,id',
-            'client_id' => 'nullable|exists:users,id',
             'worker_service_id' => 'nullable|exists:worker_services,id',
+            'comment' => 'sometimes|string|max:1000',
             'rate' => 'nullable|numeric|min:0|max:5',
         ];
     }

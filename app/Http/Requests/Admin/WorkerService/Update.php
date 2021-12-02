@@ -25,7 +25,6 @@ class Update extends FormRequest
     {
         return [
             'worker_service' => 'nullable|numeric',
-            'worker_id' => 'nullable|exists:users,id',
             'service_id' => 'nullable|exists:services,id',
             'price' => 'nullable|numeric'
         ];

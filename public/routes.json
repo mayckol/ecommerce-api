@@ -101,8 +101,6 @@
         "name": "scheduling-services.store",
         "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@store",
         "params": [
-            "worker_id",
-            "client_id",
             "available_day",
             "start_at",
             "end_at",
@@ -134,8 +132,6 @@
         "name": "scheduling-services.update",
         "action": "App\\Http\\Controllers\\Admin\\SchedulingServiceController@update",
         "params": [
-            "worker_id",
-            "client_id",
             "available_day",
             "start_at",
             "end_at",
@@ -249,7 +245,6 @@
         "name": "worker-services.store",
         "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@store",
         "params": [
-            "worker_id",
             "service_id",
             "description",
             "price"
@@ -280,7 +275,6 @@
         "name": "worker-services.update",
         "action": "App\\Http\\Controllers\\Admin\\WorkerServiceController@update",
         "params": [
-            "worker_id",
             "service_id",
             "description",
             "price"
@@ -324,7 +318,6 @@
         "name": "ratings.store",
         "action": "App\\Http\\Controllers\\Customer\\RatingController@store",
         "params": [
-            "client_id",
             "worker_service_id",
             "comment",
             "rate"
@@ -355,7 +348,6 @@
         "name": "ratings.update",
         "action": "App\\Http\\Controllers\\Customer\\RatingController@update",
         "params": [
-            "client_id",
             "worker_service_id",
             "comment",
             "rate"

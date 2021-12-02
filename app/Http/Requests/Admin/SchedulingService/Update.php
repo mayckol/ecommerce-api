@@ -25,11 +25,9 @@ class Update extends FormRequest
     {
         return [
             'scheduling_service' => 'required|exists:scheduling_services,id',
-            'worker_id' => 'nullable|exists:users,id',
             'available_day' => 'nullable|date|date_format:Y-m-d',
             'start_at' => 'nullable|date_format:H:i',
             'end_at' => 'nullable|date_format:H:i|after:start_at',
-            'price' => 'nullable|numeric'
         ];
     }
 

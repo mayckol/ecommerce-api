@@ -24,8 +24,8 @@ class Store extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id' => 'required|exists:users,id',
             'worker_service_id' => 'required|exists:worker_services,id',
+            'comment' => 'required|string|max:1000',
             'rate' => 'required|numeric|min:0|max:5',
         ];
     }

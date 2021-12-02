@@ -16,11 +16,11 @@ class CreateSchedulingServicesTable extends Migration
         Schema::create('scheduling_services', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('worker_id');
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('client_id')->nullable();
             $table->date('available_day');
             $table->time('start_at');
             $table->time('end_at');
-            $table->boolean('is_available')->default(false);
+            $table->boolean('is_available')->default(true);
             $table->timestamps();
             $table->softDeletes();
 

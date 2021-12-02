@@ -4,6 +4,7 @@ namespace App\Services\Admin;
 
 use App\Repositories\WorkerServiceRepository;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class WorkerServiceService {
@@ -19,9 +20,16 @@ class WorkerServiceService {
 
     public function all(?bool $paginate = false)
     {
-        return $paginate
-            ? $this->workerServiceRepository->paginate()
-            : $this->workerServiceRepository->all();
+        $workerService = $this->workerServiceRepository
+            ->with(['worker', 'service'])
+            ->paginate()->where('worker_id', '=', Auth::user()->id);
+
+        if (!$paginate) {
+            $workerService = $this->workerServiceRepository
+                ->with(['worker', 'service'])
+                ->findWhere(['worker_id' => Auth::user()->id]);
+        }
+        return $workerService;
     }
 
     /**
@@ -29,7 +37,11 @@ class WorkerServiceService {
      */
     public function show(int $id)
     {
-        return $this->workerServiceRepository->find($id);
+        $workerService = $this->workerServiceRepository->find($id);
+        if ($workerService?->worker_id === $id) {
+            return [];
+        }
+        return $workerService;
     }
 
     /**
@@ -38,6 +50,7 @@ class WorkerServiceService {
      */
     public function store(array $data)
     {
+        $data['worker_id'] = Auth::user()->id;
         try {
             return $this->workerServiceRepository->create($data);
         } catch (Exception $exception) {
@@ -54,6 +67,7 @@ class WorkerServiceService {
         if (!$service) {
             throw new Exception('Agendamento não encontrado.');
         }
+        $data['worker_id'] = Auth::user()->id;
         try {
             return $this->workerServiceRepository->update($data, $id);
         } catch (Exception $exception) {

@@ -19,6 +19,7 @@ class Rating extends Model
         'client_id',
         'worker_service_id',
         'rate',
+        'comment',
     ];
 
     public function client(): BelongsTo

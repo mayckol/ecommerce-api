@@ -4,6 +4,7 @@ namespace App\Services\Customer;
 
 use App\Repositories\RatingRepository;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class RatingService {
@@ -19,9 +20,11 @@ class RatingService {
 
     public function all(?bool $paginate = false)
     {
-        return $paginate
-            ? $this->ratingRepository->paginate()
-            : $this->ratingRepository->all();
+        $ratings = $this->ratingRepository->paginate()->where('client_id', '=', Auth::user()->id);
+        if (!$paginate) {
+            $ratings = $this->ratingRepository->findWhere(['client_id' => Auth::user()->id]);
+        }
+        return $ratings;
     }
 
     /**
@@ -38,6 +41,7 @@ class RatingService {
      */
     public function store(array $data)
     {
+        $data['client_id'] = Auth::user()->id;
         try {
             return $this->ratingRepository->create($data);
         } catch (Exception $exception) {
